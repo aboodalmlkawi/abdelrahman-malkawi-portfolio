@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdelrahman Al Ramadneh | Data Scientist & AI Engineer</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter (Body) and Poppins (Display/Headlines) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'display': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-primary': '#202020', // Deep Black/Charcoal (Background)
+                        'dark-secondary': '#333533', // Dark Gray (Cards/Borders)
+                        'text-light': '#D6D6D6', // Light Gray (Primary Text)
+                        'accent-sunflower': '#FFEE32', // Bright Yellow (Primary Accent)
+                        'accent-gold': '#FFD100', // Gold/Muted Yellow (Secondary Accent)
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles (For custom accents and geometric background) -->
+    <style>
+        body {
+            background-color: #202020;
+            color: #D6D6D6;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.75;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Sticky Navigation Active State Styling */
+        .nav-link.active {
+            color: '#FFEE32';
+            font-weight: 600;
+        }
+        .nav-link.active::after {
+             content: '';
+             display: block;
+             width: 100%;
+             height: 2px;
+             background: #FFEE32;
+             margin-top: 2px;
+        }
+
+        /* Abstract/Geometric Hero Background Effect */
+        #hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 10% 90%, rgba(51, 53, 51, 0.4) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 10%, rgba(51, 53, 51, 0.4) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Sticky Navigation -->
+    <header id="header" class="bg-dark-primary/95 backdrop-blur-sm sticky top-0 z-50 transition-shadow duration-300 border-b border-dark-secondary/50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center max-w-7xl">
+            <a href="#home" class="text-2xl font-display font-extrabold text-text-light">
+                <span class="text-accent-sunflower">A</span><span class="text-white">R.</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center text-sm">
+                <a href="#home" class="nav-link text-text-light hover:text-accent-sunflower transition-colors active">Home</a>
+                <a href="#about" class="nav-link text-text-light hover:text-accent-sunflower transition-colors">About Me</a>
+                <a href="#skills" class="nav-link text-text-light hover:text-accent-sunflower transition-colors">Skills</a>
+                <a href="#portfolio" class="nav-link text-text-light hover:text-accent-sunflower transition-colors">Projects</a>
+                <a href="#services" class="nav-link text-text-light hover:text-accent-sunflower transition-colors">Services</a>
+                <a href="#contact" class="nav-link text-text-light hover:text-accent-sunflower transition-colors">Contact</a>
+            </div>
+             <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-text-light focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 bg-dark-primary">
+            <a href="#home" class="block py-2 text-text-light hover:text-accent-sunflower transition-colors">Home</a>
+            <a href="#about" class="block py-2 text-text-light hover:text-accent-sunflower transition-colors">About Me</a>
+            <a href="#skills" class="block py-2 text-text-light hover:text-accent-sunflower transition-colors">Skills</a>
+            <a href="#portfolio" class="block py-2 text-text-light hover:text-accent-sunflower transition-colors">Projects</a>
+            <a href="#services" class="block py-2 text-text-light hover:text-accent-sunflower transition-colors">Services</a>
+            <a href="#contact" class="block py-2 text-text-light hover:text-accent-sunflower transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto">
+        <!-- Home / Hero Section -->
+        <section id="home" class="px-6 py-20 md:py-32 min-h-screen flex items-center relative" id="hero-background">
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+                <div class="lg:col-span-7 text-center lg:text-left order-2 lg:order-1">
+                    <p class="text-xl text-accent-sunflower font-semibold mb-4 tracking-widest uppercase">Abdelrahman Yousef Al Ramadneh</p>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-display font-extrabold text-white leading-tight mb-4">
+                        Data Scientist <span class="text-accent-sunflower">|</span> AI Engineer
+                    </h1>
+                    <p class="text-2xl sm:text-3xl text-text-light/90 max-w-2xl mx-auto lg:mx-0 font-medium">
+                        Building Scalable AI Solutions, from <span class="text-accent-sunflower">LLMs</span> to Deep Learning Applications.
+                    </p>
+                    
+                    <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                        <a href="#portfolio" class="bg-accent-sunflower text-dark-primary font-bold py-3 px-8 rounded-lg hover:bg-accent-gold transition-all transform hover:scale-[1.02] shadow-xl text-lg tracking-wide">
+                            View My Projects
+                        </a>
+                        <a href="#contact" class="bg-dark-secondary text-text-light font-bold py-3 px-8 rounded-lg hover:bg-[#4a4c4a] transition-all transform hover:scale-[1.02] shadow-md text-lg">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 flex justify-center order-1 lg:order-2">
+                    <!-- Placeholder for Profile Picture/AI Visual -->
+                    <div class="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-8 border-dark-secondary shadow-2xl bg-dark-secondary/70 flex items-center justify-center">
+                        <img src="https://placehold.co/400x400/333533/FFD100?text=AI+Visual"
+                             onerror="this.onerror=null;this.src='https://placehold.co/400x400/333533/FFD100?text=AI+Visual';" 
+                             alt="Abstract AI Data Visualization" 
+                             class="w-full h-full object-cover opacity-80"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Separator with Data Flow Visual -->
+        <div class="h-px w-full bg-gradient-to-r from-transparent via-accent-sunflower/50 to-transparent my-10"></div>
+
+        <!-- About Me Section -->
+        <section id="about" class="px-6 py-20 md:py-28">
+            <h2 class="text-4xl font-display font-bold text-center text-white mb-4">About Me</h2>
+            <p class="text-center text-text-light/70 mb-12 max-w-3xl mx-auto">A deep dive into my professional journey and dedication to AI engineering.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Bio & Summary -->
+                <div class="lg:sticky top-28 self-start bg-dark-secondary p-8 rounded-xl shadow-2xl border border-dark-secondary/70">
+                    <h3 class="text-3xl font-display font-bold text-accent-sunflower mb-4">My Professional Mission</h3>
+                    <p class="text-text-light mb-6">
+                        Data scientist and AI engineer skilled in **Python**, **machine learning**, **LLMs**, **deep learning**, and **data analysis**. My focus is on transforming complex datasets into innovative, scalable AI solutions. I thrive in challenging environments and possess strong analytical skills.
+                    </p>
+                    <p class="text-text-light/80 border-l-4 border-accent-gold pl-4 italic">
+                        Strong in communication, prompt engineering, and delivering results under pressure. My commitment is to drive sustainable and intelligent technological advancements.
+                    </p>
+                </div>
+
+                <!-- Education and Experience Timeline -->
+                <div class="space-y-10">
+                    <!-- Education -->
+                    <div>
+                        <h3 class="text-3xl font-display font-bold text-white border-b-2 border-accent-sunflower/50 pb-2 mb-6">Education</h3>
+                        <div class="relative pl-6">
+                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-dark-secondary rounded-full"></div>
+                            
+                            <!-- Timeline Item 1 -->
+                            <div class="relative mb-8">
+                                <div class="w-3 h-3 bg-accent-sunflower rounded-full absolute -left-[5.5px] top-1"></div>
+                                <p class="text-sm text-text-light/70">2021 – 2025</p>
+                                <h4 class="text-xl font-semibold text-white">BTech (Data Science & AI)</h4>
+                                <p class="text-text-light/80">Irbid National University, Irbid, Jordan</p>
+                                <p class="text-sm text-text-light/60">GPA: 3.0</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience -->
+                    <div>
+                        <h3 class="text-3xl font-display font-bold text-white border-b-2 border-accent-sunflower/50 pb-2 mb-6">Experience & Achievements</h3>
+                        <div class="relative pl-6">
+                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-dark-secondary rounded-full"></div>
+
+                            <!-- Timeline Item 1 -->
+                            <div class="relative mb-8">
+                                <div class="w-3 h-3 bg-accent-sunflower rounded-full absolute -left-[5.5px] top-1"></div>
+                                <p class="text-sm text-text-light/70">April 2025 – May 2025</p>
+                                <h4 class="text-xl font-semibold text-white">IEEE ModelThone Data Science Competition</h4>
+                                <p class="text-text-light/80 font-medium text-accent-gold">Achieved first place in the Lung Classification task.</p>
+                                <p class="text-text-light/60">Successfully developed and deployed an accurate deep learning model for medical image classification, demonstrating excellence in competition-level data science.</p>
+                            </div>
+
+                            <!-- Timeline Item 2 -->
+                            <div class="relative mb-8">
+                                <div class="w-3 h-3 bg-accent-sunflower rounded-full absolute -left-[5.5px] top-1"></div>
+                                <p class="text-sm text-text-light/70">Oct 2024 – Feb 2025</p>
+                                <h4 class="text-xl font-semibold text-white">Robotics & Arduino Internship</h4>
+                                <p class="text-text-light/80">Spark Electronics Company</p>
+                                <p class="text-text-light/60">Gained hands-on experience in embedded systems, C/C++ programming, and rapid prototyping of electronic and robotic systems.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Separator -->
+        <div class="h-px w-full bg-gradient-to-r from-transparent via-accent-sunflower/50 to-transparent my-10"></div>
+
+        <!-- Skills & Expertise Section -->
+        <section id="skills" class="px-6 py-20 md:py-28">
+            <h2 class="text-4xl font-display font-bold text-center text-white mb-4">Skills & Expertise</h2>
+            <p class="text-center text-text-light/70 mb-12 max-w-3xl mx-auto">The tools and competencies that drive my AI engineering work.</p>
+
+            <div class="max-w-4xl mx-auto space-y-10">
+                <!-- Technical Skills -->
+                <div class="bg-dark-secondary p-8 rounded-xl shadow-lg border border-dark-secondary/70">
+                    <h3 class="text-2xl font-display font-bold text-accent-sunflower mb-5">Technical Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <!-- Technical Skill Tags -->
+                        <span class="skill-tag border border-accent-gold text-accent-gold px-4 py-1 rounded-full text-sm font-medium bg-dark-secondary/50 transition-colors hover:bg-accent-sunflower/20">Python</span>
+                        <span class="skill-tag border border-accent-gold text-accent-gold px-4 py-1 rounded-full text-sm font-medium bg-dark-secondary/50 transition-colors hover:bg-accent-sunflower/20">Machine Learning</span>
+                        <span class="skill-tag border border-accent-gold text-accent-gold px-4 py-1 rounded-full text-sm font-medium bg-dark-secondary/50 transition-colors hover:bg-accent-sunflower/20">Deep Learning</span>
+                        <span class="skill-tag border border-accent-gold text-accent-gold px-4 py-1 rounded-full text-sm font-medium bg-dark-secondary/50 transition-colors hover:bg-accent-sunflower/20">Large Language Models (LLMs)</span>
+                        <span class="skill-tag border border-accent-gold text-accent-gold px-4 py-1 rounded-full text-sm font-medium bg-dark-secondary/50 transition-colors hover:bg-accent-sunflower/20">Data Analysis</span>
+                        <span class="skill-tag border border-accent-gold text-accent-gold px-4 py-1 rounded-full text-sm font-medium bg-dark-secondary/50 transition-colors hover:bg-accent-sunflower/20">Big Data</span>
+                        <span class="skill-tag border border-accent-gold text-accent-gold px-4 py-1 rounded-full text-sm font-medium bg-dark-secondary/50 transition-colors hover:bg-accent-sunflower/20">AI Tools Proficiency</span>
+                        <span class="skill-tag border border-accent-gold text-accent-gold px-4 py-1 rounded-full text-sm font-medium bg-dark-secondary/50 transition-colors hover:bg-accent-sunflower/20">Prompt Engineering</span>
+                        <span class="skill-tag border border-accent-gold text-accent-gold px-4 py-1 rounded-full text-sm font-medium bg-dark-secondary/50 transition-colors hover:bg-accent-sunflower/20">C/C++ (Embedded)</span>
+                        <span class="skill-tag border border-accent-gold text-accent-gold px-4 py-1 rounded-full text-sm font-medium bg-dark-secondary/50 transition-colors hover:bg-accent-sunflower/20">IoT</span>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="bg-dark-secondary p-8 rounded-xl shadow-lg border border-dark-secondary/70">
+                    <h3 class="text-2xl font-display font-bold text-accent-sunflower mb-5">Soft Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <!-- Soft Skill Tags -->
+                        <span class="skill-tag border border-text-light/50 text-text-light/80 px-4 py-1 rounded-full text-sm font-medium bg-dark-primary/50 transition-colors hover:bg-dark-secondary/80">Effective communication</span>
+                        <span class="skill-tag border border-text-light/50 text-text-light/80 px-4 py-1 rounded-full text-sm font-medium bg-dark-primary/50 transition-colors hover:bg-dark-secondary/80">Negotiation and dialogue handling</span>
+                        <span class="skill-tag border border-text-light/50 text-text-light/80 px-4 py-1 rounded-full text-sm font-medium bg-dark-primary/50 transition-colors hover:bg-dark-secondary/80">Working under pressure</span>
+                        <span class="skill-tag border border-text-light/50 text-text-light/80 px-4 py-1 rounded-full text-sm font-medium bg-dark-primary/50 transition-colors hover:bg-dark-secondary/80">Computer skills</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Separator -->
+        <div class="h-px w-full bg-gradient-to-r from-transparent via-accent-sunflower/50 to-transparent my-10"></div>
+
+        <!-- Portfolio / Projects Section -->
+        <section id="portfolio" class="px-6 py-20 md:py-28">
+            <h2 class="text-4xl font-display font-bold text-center text-white mb-4">Featured Projects</h2>
+            <p class="text-center text-text-light/70 mb-12 max-w-3xl mx-auto">Showcasing my capability in building end-to-end data and AI solutions.</p>
+
+            <div class="max-w-4xl mx-auto"> <!-- Centered container applied here -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> <!-- Optimized for two cards -->
+                    <!-- Project Card 1: Smart Recycling -->
+                    <div class="bg-dark-secondary rounded-xl shadow-xl overflow-hidden p-6 border border-dark-secondary/70 transform transition-all duration-300 hover:scale-[1.03] hover:shadow-accent-sunflower/20">
+                        <h3 class="text-2xl font-display font-bold text-accent-sunflower mb-2">Smart Recycling - Graduation Project</h3>
+                        <p class="text-text-light/80 text-sm mb-4">Technologies: Deep Learning, IoT, Data Analytics, Python</p>
+                        <p class="text-text-light mb-4">An **AI-powered recycling system integrating IoT and data analytics** to optimize waste management, promote sustainability, and analyze consumer patterns.</p>
+                        <a href="https://www.kaggle.com/code/aboodai/smart-recycling-resnet50-deepseekr1?scriptVersionId=223514348" target="_blank" rel="noopener noreferrer" class="flex items-center text-accent-gold hover:text-accent-sunflower transition-colors font-semibold">
+                            View Code on Kaggle
+                            <!-- Arrow Right Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Project Card 2: Lung Classification -->
+                    <div class="bg-dark-secondary rounded-xl shadow-xl overflow-hidden p-6 border border-dark-secondary/70 transform transition-all duration-300 hover:scale-[1.03] hover:shadow-accent-sunflower/20">
+                        <h3 class="text-2xl font-display font-bold text-accent-sunflower mb-2">IEEE ModelThone Lung Classification</h3>
+                        <p class="text-text-light/80 text-sm mb-4">Technologies: Deep Learning (CNNs), Image Processing, Python</p>
+                        <p class="text-text-light mb-4">Achieved **first place** by developing a high-accuracy model for classifying lung conditions from medical images, validating expertise in competitive AI challenges.</p>
+                        <a href="#portfolio" class="flex items-center text-text-light/50 font-semibold cursor-default">
+                            Internal Achievement (Code Link N/A)
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Separator -->
+        <div class="h-px w-full bg-gradient-to-r from-transparent via-accent-sunflower/50 to-transparent my-10"></div>
+        
+        <!-- Services Section -->
+        <section id="services" class="px-6 py-20 md:py-28 bg-dark-secondary/30 rounded-xl mx-6 lg:mx-0">
+            <h2 class="text-4xl font-display font-bold text-center text-white mb-4">AI Modelling and Data Science Solutions</h2>
+            <p class="text-center text-text-light/70 mb-12 max-w-3xl mx-auto">I partner with clients to deliver intelligent, customized data solutions that drive business value.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Service Offering Card 1 (AI/ML) -->
+                <div class="bg-dark-primary p-8 rounded-xl shadow-lg border-t-4 border-accent-sunflower">
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">Custom AI/ML Development</h3>
+                    <ul class="space-y-3 text-text-light list-none pl-0">
+                        <li class="flex items-start">
+                            <span class="text-accent-gold mr-2 text-xl">&bull;</span> Custom Machine Learning Model Development (Classification, Regression, etc.)
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent-gold mr-2 text-xl">&bull;</span> Deep Learning solutions (CNNs, RNNs) for Computer Vision and Sequential Data.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent-gold mr-2 text-xl">&bull;</span> Predictive Analytics and Forecasting.
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service Offering Card 2 (Data Science) -->
+                <div class="bg-dark-primary p-8 rounded-xl shadow-lg border-t-4 border-accent-sunflower">
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">Data Science Solutions</h3>
+                    <ul class="space-y-3 text-text-light list-none pl-0">
+                        <li class="flex items-start">
+                            <span class="text-accent-gold mr-2 text-xl">&bull;</span> Data Cleaning, Wrangling, and Exploratory Data Analysis (EDA).
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent-gold mr-2 text-xl">&bull;</span> SQL Database Design and Data Warehousing implementation.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent-gold mr-2 text-xl">&bull;</span> Data Visualization and Dashboard Creation.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Separator -->
+        <div class="h-px w-full bg-gradient-to-r from-transparent via-accent-sunflower/50 to-transparent my-10"></div>
+
+        <!-- Contact Section -->
+        <section id="contact" class="px-6 py-20 md:py-28">
+            <h2 class="text-4xl font-display font-bold text-center text-white mb-4">Let's Connect</h2>
+            <p class="text-center text-text-light/70 max-w-xl mx-auto mb-12">I'm actively seeking new collaborations and opportunities. Feel free to send a message.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                
+                <!-- Contact Form -->
+                <div class="bg-dark-secondary p-8 rounded-xl shadow-2xl border border-dark-secondary/70">
+                    <h3 class="text-2xl font-display font-bold text-accent-sunflower mb-6">Send Me a Message</h3>
+                    <form action="#" method="POST" onsubmit="alert('Message sent successfully! (Simulated)'); return false;" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-text-light/80 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full p-3 rounded-lg bg-dark-primary border border-dark-secondary/70 focus:ring-accent-sunflower focus:border-accent-sunflower outline-none text-text-light">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-text-light/80 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full p-3 rounded-lg bg-dark-primary border border-dark-secondary/70 focus:ring-accent-sunflower focus:border-accent-sunflower outline-none text-text-light">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-text-light/80 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full p-3 rounded-lg bg-dark-primary border border-dark-secondary/70 focus:ring-accent-sunflower focus:border-accent-sunflower outline-none text-text-light"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-accent-sunflower text-dark-primary font-bold py-3 px-6 rounded-lg hover:bg-accent-gold transition-all transform hover:scale-[1.01] shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="p-8 lg:p-0">
+                    <h3 class="text-2xl font-display font-bold text-white mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent-sunflower flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                            <div class="ml-4">
+                                <p class="font-medium text-text-light/80">Email Address</p>
+                                <a href="mailto:almlkawyb918@gmail.com" class="text-lg text-text-light hover:text-accent-sunflower break-all transition-colors">almlkawyb918@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent-sunflower flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                            <div class="ml-4">
+                                <p class="font-medium text-text-light/80">Phone (Jordan)</p>
+                                <a href="tel:+962799514494" class="text-lg text-text-light hover:text-accent-sunflower transition-colors">+962 799514494</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-accent-sunflower flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            <div class="ml-4">
+                                <p class="font-medium text-text-light/80">Location</p>
+                                <p class="text-lg text-text-light">Irbid, Jordan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-secondary/50 py-8 mt-12">
+        <div class="container mx-auto px-6 text-center max-w-7xl">
+            <!-- Social Icons (Placeholder for LinkedIn/GitHub) -->
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-text-light hover:text-accent-sunflower transition-colors">
+                    <!-- LinkedIn Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span class="sr-only">LinkedIn</span>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="text-text-light hover:text-accent-sunflower transition-colors">
+                    <!-- GitHub Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <span class="sr-only">GitHub</span>
+                </a>
+            </div>
+            <p class="text-sm text-text-light/50">&copy; 2025 Abdelrahman Yousef Al Ramadneh. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- Active Nav Link on Scroll ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Observe the top of the sections to highlight the active link
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -60% 0px', // Adjusted margin to trigger sooner (60% up the viewport)
+            threshold: 0.1 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const currentId = entry.target.id;
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${currentId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // --- Add shadow to header on scroll ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-xl', 'border-dark-secondary');
+            } else {
+                header.classList.remove('shadow-xl', 'border-dark-secondary');
+            }
+        });
+    </script>
+
+</body>
+</html>
